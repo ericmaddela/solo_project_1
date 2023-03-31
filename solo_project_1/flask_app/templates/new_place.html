@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    label, input, button{
+        font-size: xx-large;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="body">
+            <h1>Add a Restuarant:</h1>
+        </div>
+        <div class="rec_form">
+            <form action="/add_place" method=post>
+                <div class="form-">
+                    <label for="name">Name: </label>
+                <input type="text" name="name" id="name">
+                </div>
+                <div class="form-">
+                    <label for="city">City: </label>
+                <input type="text" name="city" id="city">
+                </div>
+                <div class="form-">
+                    <label for="cuisine">Cuisine: </label>
+                <input type="text" name="cuisine" id="cuisine">
+                </div>
+                <div class="form-">
+                    <label for="address">Address: </label>
+                <input type="text" name="address" id="address">
+                </div>
+                <div class="form-">
+                    <label for="days">Days open: </label>
+                <input type="text" name="days" id="days">
+                </div>
+                <div class="form-">
+                    <label for="opening_time">Opening Time: </label>
+                <input type="number" name="opening_time" id="opening_time">
+                </div>
+                <div class="form-">
+                    <label for="closing_time">Closing Time: </label>
+                <input type="number" name="closing_time" id="closing_time">
+                </div>
+                <div class="form-">
+                    <button type="submit">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

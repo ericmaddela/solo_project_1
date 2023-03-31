@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: 0px;
+            padding: 0px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .main{
+            display: flex;
+        }
+        .reg, .login{
+            flex: 1;
+            background-color: rgb(209, 204, 204);
+            margin: 50px 50px;
+            padding: 50px 50px;
+            text-align: center;
+            font-size: xx-large;
+        }
+        label , input{
+            margin: 10px;
+        }
+        p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="reg">
+                {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                <div class="Flash" role="alert">
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+                <h2>Register</h2>
+                <form action="/register" method="post">
+                    <div class="form-">
+                        <label for="first_name">First Name: </label>
+                    <input type="text" name="first_name" id="first_name">
+                    </div>
+                    <div class="form-">
+                        <label for="last_name">Last Name: </label>
+                    <input type="text" name="last_name" id="last_name">
+                    </div>
+                    <div class="form-">
+                        <label for="email">Email: </label>
+                    <input type="email" name="email" id="email">
+                    </div>
+                    <div class="form-">
+                        <label for="username">Username: </label>
+                    <input type="text" name="username" id="username">
+                    </div>
+                    <div class="form-">
+                        <label for="password">Password: </label>
+                    <input type="password" name="password" id="password">
+                    </div>
+                    <div class="form-">
+                        <label for="confirm">Confirm Password: </label>
+                    <input type="password" name="confirm">
+                    </div>
+                    <div class="form-">
+                        <button type="submit">Create</button>
+                    </div>
+                </form>
+            </div>
+            <div class="login">
+                {% with messages = get_flashed_messages(category_filter=['login']) %}
+                {% if messages %}
+                <div class="Flash" role="alert">
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+                <h2>Login</h2>
+                <form action="/login" method="post">
+                    <div class="form-u">
+                        <label for="email">Email: </label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div class="form-u">
+                        <label for="password">Password: </label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                    <div class="form-u">
+                        <input type="submit" value="Login">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

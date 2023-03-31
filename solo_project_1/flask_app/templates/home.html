@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr,th,td {
+            font-size: x-large;
+            border: 1px solid black;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="text-align: center;">Welcome, {{session.first_name}} to Foodie.com!</h1>
+        </div>
+    </div>
+    <a href="/logout" style="font-size: xx-large;">Logout</a>
+    <a href="/new_place" style="margin-left: 400px; font-size: xx-large;">Add a New Restuarant!</a>
+    <div class="body">
+        <br>
+        <div class="heading" style="background-color: green;">
+            <h1 style="text-align: center;">Restaurants</h1>
+        </div>
+        <form name="search" action="/search.py" method="get">
+            <div>
+            <input
+                type="search"
+                id="mySearch"
+                name="q"
+                placeholder="Search the site…"
+                size="100"/>
+            <button>Search</button>
+            </div>
+        </form>
+        <div class="d-flex justify-content-around flex-wrap">
+            <div class="col-6">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Restaurants</th>
+                        <th>City</th>
+                        <th>Cuisine</th>
+                    </tr>
+                    <br>
+                    </thead>
+                    <br>
+                    <tbody>
+                        {% for p in places %}
+                    <tr>
+                        <td><a href="/view_place/{{p.id}}">{{p.name}}</a></td>
+                        <td>{{p.city}}</td>
+                        <td>{{p.cuisine}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</body>
+</html>

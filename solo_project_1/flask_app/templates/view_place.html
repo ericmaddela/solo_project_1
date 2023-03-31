@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .painting{
+        border: 2px solid black;
+    }
+
+b {
+    margin-left: 20px;
+    text-decoration: none;
+}
+</style>
+<body>
+    <div>
+        <a href="/new_place" style="font-size: x-large;">Add a New Restuarant</a>
+        <a href="/home" style="margin-left: 200px; font-size: x-large;">Back to Dashboard</a>
+        <div class="header">
+            <h1>Welcome, {{session.first_name}}</h1>
+        </div>
+        <div class="place">
+            {% for p in place_w_posted_by %}
+            <h2>Posted By: <b>{{p.first_name}}</b></h2>
+            <h2> Name: <b>{{p.name}}</b></h2>
+            <h2> City: <b>{{p.city}} </b></h2>
+            <h2> Cuisine: <b>{{p.cuisine}} </b> </h2>
+            <h2> Address: <b>{{p.address}} </b> </h2>
+            <h2> Days: <b>{{p.days}} </b> </h2>
+            <h2> Opening Time: <b>{{p.opening_time}} </b> </h2>
+            <h2> Closing Time: <b>{{p.closing_time}} </b> </h2>
+            <td><a href="/delete/{{p.id}}">Delete</a></td>
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+</html>
